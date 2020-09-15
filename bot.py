@@ -34,14 +34,14 @@ def start_menu(event: VkBotMessageEvent):
 
 def razdel1(event: VkBotMessageEvent):
     kb = VkKeyboard()
-    kb.add_button("отправить сообщение 1", payload={"send": "send1"})
+    kb.add_button("КОНТАКТЫ СТАРОСТ",color=VkKeyboardColor.PRIMARY, payload={"send": "send1"})
     kb.add_line()
     kb.add_button("Назад",
                   color=VkKeyboardColor.NEGATIVE,
                   payload={"goto": "start"})
 
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Вы в контактах!",
+                     message="Вы в контактах",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
@@ -63,7 +63,15 @@ def razdel2(event: VkBotMessageEvent):
 
 def send1(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Сообщение 1",
+                     message="Александра Епифанцева
+Староста
++7 (981) 975-31-99
+sani403@mail.ru
+
+Кирилл Кувшинов
+Зам. Старосты
++7 (952) 969-38-64
+kuvshinovich.01@mail.ru",
                      random_id=get_random_id())
 
 
