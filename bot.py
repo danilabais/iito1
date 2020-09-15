@@ -23,7 +23,7 @@ def start_menu(event: VkBotMessageEvent):
     kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/") 
     kb.add_line()  # новая строка
-    kb.add_button("Раздел 1",color=VkKeyboardColor.PRIMARY, payload={"goto": 'Раздел 1'})  # идём в раздел 1
+    kb.add_button("КОНТАКТЫ",color=VkKeyboardColor.PRIMARY, payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
     kb.add_line()
     kb.add_button("Раздел 2",color=VkKeyboardColor.PRIMARY, payload={"goto": 'Раздел 2'})
     vk.messages.send(peer_id=event.message.peer_id,
@@ -41,7 +41,7 @@ def razdel1(event: VkBotMessageEvent):
                   payload={"goto": "start"})
 
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Раздел 1",
+                     message="Вы в контактах",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
@@ -71,7 +71,7 @@ def process(event: VkBotMessageEvent):
     text: str = event.message.text.lower()  # текст в нижнем регистре
 
     # текстовые команды
-    if text == "начать":
+    if text == "привет":
         start_menu(event)
 
     try:
@@ -82,7 +82,7 @@ def process(event: VkBotMessageEvent):
     goto = payload.get("goto", None)
     if goto is not None:
         # команды с переходом в другой раздел
-        if goto == 'Раздел 1':
+        if goto == 'КОНТАКТЫ':
             razdel1(event)
         elif goto == "start":
             start_menu(event)
