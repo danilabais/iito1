@@ -63,15 +63,7 @@ def razdel2(event: VkBotMessageEvent):
 
 def send1(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Александра Епифанцева
-Староста
-+7 (981) 975-31-99
-sani403@mail.ru
-
-Кирилл Кувшинов
-Зам. Старосты
-+7 (952) 969-38-64
-kuvshinovich.01@mail.ru",
+                     message="Александра Епифанцева\nСтароста\n+7 (981) 975-31-99\nsani403@mail.ru\n\n\nКирилл Кувшинов\nЗам. Старосты\n+7 (952) 969-38-64\nkuvshinovich.01@mail.ru\n",
                      random_id=get_random_id())
 
 
