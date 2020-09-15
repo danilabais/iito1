@@ -41,7 +41,7 @@ def razdel1(event: VkBotMessageEvent):
                   payload={"goto": "start"})
 
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Вы в контактах",
+                     message="Вы в контактах!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
