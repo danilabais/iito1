@@ -19,6 +19,8 @@ def start_menu(event: VkBotMessageEvent):
     kb = VkKeyboard()
     kb.add_openlink_button("РАСПИСАНИЕ",
                            "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
+    kb.add_openlink_button("МУДЛ",
+                           "https://moodle.herzen.spb.ru/my/") 
     kb.add_line()  # новая строка
     kb.add_button("Раздел 1",color=VkKeyboardColor.PRIMARY, payload={"goto": 'Раздел 1'})  # идём в раздел 1
     kb.add_line()
