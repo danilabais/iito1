@@ -100,6 +100,14 @@ def orel(event: VkBotMessageEvent):
                      random_id=get_random_id())
 
 
+def cmdNotFound(event: VkBotMessageEvent):
+    if event.from_chat:
+        return
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Неизвестная комманда, введите \"привет\" для продолжения.",
+                     random_id=get_random_id())
+
+
 def process(event: VkBotMessageEvent):
     text: str = event.message.text.lower()  # текст в нижнем регистре
 
@@ -110,14 +118,10 @@ def process(event: VkBotMessageEvent):
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
-        vk.messages.send(peer_id=event.message.peer_id,
-                         message="Неизвестная комманда, введите \"привет\" для продолжения.",
-                         random_id=get_random_id())
+        cmdNotFound(event)
         return
     except TypeError:
-        vk.messages.send(peer_id=event.message.peer_id,
-                         message="Неизвестная комманда, введите \"привет\" для продолжения.",
-                         random_id=get_random_id())
+        cmdNotFound(event)
         return
 
     goto = payload.get("goto", None)
@@ -143,9 +147,7 @@ def process(event: VkBotMessageEvent):
         elif send == "orel":
             orel(event)
         return
-    vk.messages.send(peer_id=event.message.peer_id,
-                     message="Неизвестная комманда, введите \"привет\" для продолжения.",
-                     random_id=get_random_id())
+    cmdNotFound(event)
 
 
 def listen():
