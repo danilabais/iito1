@@ -19,7 +19,7 @@ longpoll = VkBotLongPoll(vk_session, group_id)
 
 
 class VkKeyboardCallback(VkKeyboard):
-    def add_callback_button(self, label, color=VkKeyboardColor.DEFAULT, payload=None):
+    def add_callback_button(self, label, color='default', payload=None):
         """ Добавить кнопку с текстом.
             Максимальное количество кнопок на строке - 4
 
