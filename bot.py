@@ -134,6 +134,9 @@ def process(event: VkBotMessageEvent):
         elif send == "orel":
             orel(event)
         return
+    vk.messages.send(peer_id=event.message.peer_id,
+                message="Неизвестная комманда, введите \"привет\" для продолжения.",
+                random_id=get_random_id())
 
 def listen():
     while 1:
