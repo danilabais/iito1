@@ -210,10 +210,10 @@ def process(event: VkBotMessageEvent):
         # отправка сообщения
         if send == "send1":
             send1(event)
-        elif send == "send6":  # ДОБАВИЛ ЯЯЯЯЯЯ
-            send6(event)  # ДОБАВИЛ ЯЯЯЯЯЯ
-        elif send == "send3":  # ДОБАВИЛ ЯЯЯЯЯЯ
-            send3(event)
+        elif send == "send6":                                
+            send6(event)                            
+        elif send == "send3":                                 
+            send3(event) 
         elif send == "orel":
             orel(event)
         elif send == "randomuser":
