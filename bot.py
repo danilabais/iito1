@@ -73,7 +73,7 @@ def send1(event: VkBotMessageEvent):
 
 def send6(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Александра Епифанцева\nСтароста\n+7 (981) 975-31-99\nsani403@mail.ru\n\n\nКирилл Кувшинов\nЗам. Старосты\n+7 (952) 969-38-64\nkuvshinovich.01@mail.ru\n",
+                     message="Адрес: 191186,г. Санкт-Петербург, наб. реки Мойки, корп.2, ауд. 266\n\nТелефон: +7 (812) 571-10-03\n\nПочта: icsto@herzen.spb.ru\n\nЧасы приема директора института: вт, чт с 14:00 до 16:00",
                      random_id=get_random_id())
 
 def process(event: VkBotMessageEvent):
