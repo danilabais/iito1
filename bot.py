@@ -102,7 +102,7 @@ def process(event: VkBotMessageEvent):
     # текстовые команды
     if text == "привет":
         start_menu(event)
-
+        return
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
