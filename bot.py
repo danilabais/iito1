@@ -40,6 +40,8 @@ def razdel1(event: VkBotMessageEvent):
     kb.add_button("КОНТАКТЫ СТАРОСТ",color=VkKeyboardColor.PRIMARY, payload={"send": "send1"})
     kb.add_line()
     kb.add_button("КОНТАКТЫ ДЕКАНАТА",color=VkKeyboardColor.PRIMARY, payload={"send": "send6"})
+    kb.add_line()  #    ДОБАВИЛ ЯЯЯЯЯЯ
+    kb.add_button("КОНТАКТЫ ПРОФСОЮЗА И ПРОФКОМА",color=VkKeyboardColor.PRIMARY, payload={"send": "send3"})
     kb.add_line()
     kb.add_button("Назад",
                   color=VkKeyboardColor.NEGATIVE,
@@ -69,6 +71,10 @@ def razdel2(event: VkBotMessageEvent):
 def send1(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Александра Епифанцева\nСтароста\n+7 (981) 975-31-99\nsani403@mail.ru\n\n\nКирилл Кувшинов\nЗам. Старосты\n+7 (952) 969-38-64\nkuvshinovich.01@mail.ru\n\n\nСветлана Николаевна\nОтветственная за расписание на нашем направлении\n+7 (911) 231-41-80\nsveta25.03@yandex.ru",
+                     random_id=get_random_id())
+def send3(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Владимир Валерьевич Казанкин\n+7 (951) 647-09-05\n\nАлександра\n+7 (911) 822-59-25\n\nОбщий\n+7 (812) 570-14-12\n\nПрофком\n+7 (812) 570-14-12",
                      random_id=get_random_id())
 
 def send6(event: VkBotMessageEvent):
@@ -106,7 +112,8 @@ def process(event: VkBotMessageEvent):
             send1(event)
         if send == "send6":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
             send6(event)                            #    ДОБАВИЛ ЯЯЯЯЯЯ
-
+        if send == "send3":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
+            send3(event) 
 
 def listen():
     while 1:
