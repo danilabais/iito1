@@ -26,11 +26,13 @@ def start_menu(event: VkBotMessageEvent):
                            "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("МУДЛ",
-                           "https://moodle.herzen.spb.ru/my/") 
+                           "https://moodle.herzen.spb.ru/my/")
     kb.add_line()  # новая строка
-    kb.add_button("КОНТАКТЫ",color=VkKeyboardColor.PRIMARY, payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
+    kb.add_button("КОНТАКТЫ", color=VkKeyboardColor.PRIMARY,
+                  payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
     kb.add_line()
-    kb.add_button("РАНДОМ",color=VkKeyboardColor.POSITIVE, payload={"goto": 'РАНДОМ'})
+    kb.add_button("РАНДОМ", color=VkKeyboardColor.POSITIVE,
+                  payload={"goto": 'РАНДОМ'})
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
@@ -39,11 +41,14 @@ def start_menu(event: VkBotMessageEvent):
 
 def razdel1(event: VkBotMessageEvent):
     kb = VkKeyboard()
-    kb.add_button("КОНТАКТЫ СТАРОСТ",color=VkKeyboardColor.PRIMARY, payload={"send": "send1"})
+    kb.add_button("КОНТАКТЫ СТАРОСТ", color=VkKeyboardColor.PRIMARY,
+                  payload={"send": "send1"})
     kb.add_line()
-    kb.add_button("КОНТАКТЫ ДЕКАНАТА",color=VkKeyboardColor.PRIMARY, payload={"send": "send6"})
-    kb.add_line()  #    ДОБАВИЛ ЯЯЯЯЯЯ
-    kb.add_button("КОНТАКТЫ ПРОФСОЮЗА И ПРОФКОМА",color=VkKeyboardColor.PRIMARY, payload={"send": "send3"})
+    kb.add_button("КОНТАКТЫ ДЕКАНАТА",
+                  color=VkKeyboardColor.PRIMARY, payload={"send": "send6"})
+    kb.add_line()  # ДОБАВИЛ ЯЯЯЯЯЯ
+    kb.add_button("КОНТАКТЫ ПРОФСОЮЗА И ПРОФКОМА",
+                  color=VkKeyboardColor.PRIMARY, payload={"send": "send3"})
     kb.add_line()
     kb.add_button("Назад",
                   color=VkKeyboardColor.NEGATIVE,
@@ -71,33 +76,32 @@ def razdel2(event: VkBotMessageEvent):
                      keyboard=kb.get_keyboard())
 
 
-
 def send1(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Александра Епифанцева\nСтароста\n+7 (981) 975-31-99\nsani403@mail.ru\n\n\nКирилл Кувшинов\nЗам. Старосты\n+7 (952) 969-38-64\nkuvshinovich.01@mail.ru\n\n\nСветлана Николаевна\nОтветственная за расписание на нашем направлении\n+7 (911) 231-41-80\nsveta25.03@yandex.ru",
                      random_id=get_random_id())
+
+
 def send3(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Владимир Валерьевич Казанкин\n+7 (951) 647-09-05\n\nАлександра\n+7 (911) 822-59-25\n\nОбщий\n+7 (812) 570-14-12\n\nПрофком\n+7 (812) 570-14-12",
                      random_id=get_random_id())
 
+
 def send6(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Адрес: 191186, г. Санкт-Петербург, наб. реки Мойки, корп. 2, ауд. 266\n\nТелефон: +7 (812) 571-10-03\n\nПочта: icsto@herzen.spb.ru\n\nЧасы приема директора института: вт, чт с 14:00 до 16:00",
-                     random_id=get_random_id())                 #    ДОБАВИЛ ЯЯЯЯЯЯ
+                     random_id=get_random_id())  # ДОБАВИЛ ЯЯЯЯЯЯ
+
 
 def orel(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message=random.choice(["Орел","Решка"]),
+                     message=random.choice(["Орел", "Решка"]),
                      random_id=get_random_id())
+
 
 def process(event: VkBotMessageEvent):
     text: str = event.message.text.lower()  # текст в нижнем регистре
-
-
-
-
-
 
     # текстовые команды
     if text == "привет":
@@ -107,8 +111,13 @@ def process(event: VkBotMessageEvent):
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
         vk.messages.send(peer_id=event.message.peer_id,
-                     message="Неизвестная комманда, введите \"привет\" для продолжения.",
-                     random_id=get_random_id()) 
+                         message="Неизвестная комманда, введите \"привет\" для продолжения.",
+                         random_id=get_random_id())
+        return
+    except TypeError:
+        vk.messages.send(peer_id=event.message.peer_id,
+                         message="Неизвестная комманда, введите \"привет\" для продолжения.",
+                         random_id=get_random_id())
         return
 
     goto = payload.get("goto", None)
@@ -127,16 +136,17 @@ def process(event: VkBotMessageEvent):
         # отправка сообщения
         if send == "send1":
             send1(event)
-        elif send == "send6":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
-            send6(event)                            #    ДОБАВИЛ ЯЯЯЯЯЯ
-        elif send == "send3":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
-            send3(event) 
+        elif send == "send6":  # ДОБАВИЛ ЯЯЯЯЯЯ
+            send6(event)  # ДОБАВИЛ ЯЯЯЯЯЯ
+        elif send == "send3":  # ДОБАВИЛ ЯЯЯЯЯЯ
+            send3(event)
         elif send == "orel":
             orel(event)
         return
     vk.messages.send(peer_id=event.message.peer_id,
-                message="Неизвестная комманда, введите \"привет\" для продолжения.",
-                random_id=get_random_id())
+                     message="Неизвестная комманда, введите \"привет\" для продолжения.",
+                     random_id=get_random_id())
+
 
 def listen():
     while 1:
@@ -146,4 +156,6 @@ def listen():
                     process(event)
         except Exception as err:
             print(err)
+
+
 listen()
