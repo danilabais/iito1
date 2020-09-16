@@ -4,6 +4,8 @@ from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.utils import get_random_id
 import json
 
+import random
+
 with open("token.txt") as f:  # читаем токен из файла token.secret
     vk_session = VkApi(token=f.read(), api_version="5.103")
 
@@ -28,7 +30,7 @@ def start_menu(event: VkBotMessageEvent):
     kb.add_line()  # новая строка
     kb.add_button("КОНТАКТЫ",color=VkKeyboardColor.PRIMARY, payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
     kb.add_line()
-    kb.add_button("Раздел 2",color=VkKeyboardColor.PRIMARY, payload={"goto": 'Раздел 2'})
+    kb.add_button("РАНДОМ",color=VkKeyboardColor.POSITIVE, payload={"goto": 'РАНДОМ'})
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
@@ -57,6 +59,8 @@ def razdel2(event: VkBotMessageEvent):
     kb = VkKeyboard()
     kb.add_button("отправить сообщение 1", payload={"send": "send1"})
     kb.add_line()
+    kb.add_button("ОРЕЛ И РЕШКА", payload={"send": "orel"})
+    kb.add_line()
     kb.add_button("Назад",
                   color=VkKeyboardColor.NEGATIVE,
                   payload={"goto": "start"})
@@ -82,8 +86,18 @@ def send6(event: VkBotMessageEvent):
                      message="Адрес: 191186, г. Санкт-Петербург, наб. реки Мойки, корп. 2, ауд. 266\n\nТелефон: +7 (812) 571-10-03\n\nПочта: icsto@herzen.spb.ru\n\nЧасы приема директора института: вт, чт с 14:00 до 16:00",
                      random_id=get_random_id())                 #    ДОБАВИЛ ЯЯЯЯЯЯ
 
+def orel(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message=random.choice(["Орел","Решка"]),
+                     random_id=get_random_id())
+
 def process(event: VkBotMessageEvent):
     text: str = event.message.text.lower()  # текст в нижнем регистре
+
+
+
+
+
 
     # текстовые команды
     if text == "привет":
@@ -101,7 +115,7 @@ def process(event: VkBotMessageEvent):
             razdel1(event)
         elif goto == "start":
             start_menu(event)
-        elif goto == 'Раздел 2':
+        elif goto == 'РАНДОМ':
             razdel2(event)
         return
 
@@ -110,10 +124,12 @@ def process(event: VkBotMessageEvent):
         # отправка сообщения
         if send == "send1":
             send1(event)
-        if send == "send6":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
+        elif send == "send6":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
             send6(event)                            #    ДОБАВИЛ ЯЯЯЯЯЯ
-        if send == "send3":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
+        elif send == "send3":                                  #    ДОБАВИЛ ЯЯЯЯЯЯ
             send3(event) 
+        elif send == "orel":
+            orel(event)
 
 def listen():
     while 1:
