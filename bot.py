@@ -95,6 +95,11 @@ def urlkb(event: VkBotMessageEvent):
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
+def spok(event: VkBotMessageEvent):                                 #+++++++++++++++++++++++++++++++++
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Желаю всей группе спокойной ночи! &#128521;",
+                     random_id=get_random_id(),
+
 def razdel1(event: VkBotMessageEvent):
     kb = VkKeyboard(inline=True)
     kb.add_button("КОНТАКТЫ СТАРОСТ", color=VkKeyboardColor.PRIMARY,
@@ -183,6 +188,8 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+urlkb":
         urlkb(event)
+    elif text == "+spok" # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        spok(event)   # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
