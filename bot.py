@@ -79,13 +79,16 @@ def start_menu(event: VkBotMessageEvent):
 
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
+    kb.add_openlink_button("В ГРУППУ",
+                           "https://vk.com/club198561767")  # кнопка с ссылкой
+    kb.add_line()
     kb.add_openlink_button("ДОМАШНЕЕ ЗАДАНИЕ",
                            "https://docs.google.com/spreadsheets/d/1pLdm10XL0JKNR5q6ibTfOfYLEjrkFfQMoaMnsBZlwZ4/edit#gid=0")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("РАСПИСАНИЕ",
                            "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
     kb.add_line()  # новая строка
-    kb.add_openlink_button("МУДЛ.",
+    kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/")
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
