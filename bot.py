@@ -85,7 +85,7 @@ def urlkb(event: VkBotMessageEvent):
     kb.add_openlink_button("РАСПИСАНИЕ",
                            "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
     kb.add_line()  # новая строка
-    kb.add_openlink_button("МУДЛ",
+    kb.add_openlink_button("МУДЛ.",
                            "https://moodle.herzen.spb.ru/my/")
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
