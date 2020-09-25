@@ -79,6 +79,7 @@ def start_menu(event: VkBotMessageEvent):
 
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
+   
     kb.add_openlink_button("В ГРУППУ",
                            "https://vk.com/club198561767")  # кнопка с ссылкой
     kb.add_line()
@@ -91,14 +92,9 @@ def urlkb(event: VkBotMessageEvent):
     kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/")
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Привет!!",
+                     message="Привет!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
-
-def spok(event: VkBotMessageEvent):                                 #+++++++++++++++++++++++++++++++++
-    vk.messages.send(peer_id=event.message.peer_id,
-                     message="Желаю всей группе спокойной ночи! &#128521;",
-                     random_id=get_random_id(),
 
 def razdel1(event: VkBotMessageEvent):
     kb = VkKeyboard(inline=True)
@@ -188,10 +184,6 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+urlkb":
         urlkb(event)
-        return
-    elif text == "+spok" # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        spok(event)   # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        return
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
