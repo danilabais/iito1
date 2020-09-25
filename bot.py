@@ -79,7 +79,7 @@ def start_menu(event: VkBotMessageEvent):
 
 def spok(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Желаю всем спокойной ночи!&#128515;",
+                     message="Желаю всем спокойной ночи!&#128515;)",
                      random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
