@@ -80,8 +80,7 @@ def start_menu(event: VkBotMessageEvent):
 def spok(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Желаю всем спокойной ночи!!!",
-                     random_id=get_random_id(),
-                     keyboard=kb.get_keyboard())
+                     random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
