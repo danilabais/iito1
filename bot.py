@@ -103,7 +103,7 @@ def razdel1(event: VkBotMessageEvent):
     kb.add_line()
     kb.add_button("КОНТАКТЫ ДЕКАНАТА",
                   color=VkKeyboardColor.PRIMARY, payload={"send": "send6"})
-    kb.add_line()  # ДОБАВИЛ ЯЯЯЯЯЯ
+    kb.add_line()
     kb.add_button("КОНТАКТЫ ПРОФСОЮЗА И ПРОФКОМА",
                   color=VkKeyboardColor.PRIMARY, payload={"send": "send3"})
     kb.add_line()
