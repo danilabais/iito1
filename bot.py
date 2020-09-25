@@ -77,6 +77,12 @@ def start_menu(event: VkBotMessageEvent):
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
+def spok(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Желаю всем спокойной ночи!!!",
+                     random_id=get_random_id(),
+                     keyboard=kb.get_keyboard())
+
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
    
@@ -184,6 +190,10 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+urlkb":
         urlkb(event)
+        return
+    elif text == "+s":
+        spok(event)
+        return
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
