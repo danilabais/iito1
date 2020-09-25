@@ -91,7 +91,7 @@ def urlkb(event: VkBotMessageEvent):
     kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/")
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Привет!!!",
+                     message="Привет!!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
 
