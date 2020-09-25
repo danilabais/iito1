@@ -188,8 +188,10 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+urlkb":
         urlkb(event)
+        return
     elif text == "+spok" # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         spok(event)   # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        return
     try:
         payload: dict = json.loads(event.message.payload)
     except json.JSONDecodeError:
