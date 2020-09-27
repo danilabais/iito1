@@ -84,7 +84,7 @@ def spok(event: VkBotMessageEvent):
 
 def v(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="@all(П)ожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
+                     message="Пожалуйста,@all, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
                      random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
