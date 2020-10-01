@@ -58,11 +58,9 @@ class VkKeyboardCallback(VkKeyboard):
 
 def fuck(event: VkBotMessageEvent):
     kb = VkKeyboardCallback(inline=True)
-    kb.add_callback_button("КОНТАКТЫ", color=VkKeyboardColor.PRIMARY,
-                           payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
+    kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,
+                           payload={"goto": 'спок'})  # идём в раздел 1
     kb.add_line()
-    kb.add_callback_button("Случайный человек", payload={"send": "randomuser"})
-    kb.add_callback_button("ОРЕЛ И РЕШКА", payload={"send": "orel"})
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
@@ -238,6 +236,8 @@ def process(event: VkBotMessageEvent):
             razdel1(event)
         elif goto == "start":
             start_menu(event)
+        elif goto == "спок":
+            spok(event)
         elif goto == 'РАНДОМ':
             razdel2(event)
         return
