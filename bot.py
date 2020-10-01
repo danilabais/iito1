@@ -57,7 +57,7 @@ class VkKeyboardCallback(VkKeyboard):
 
 
 def fuck(event: VkBotMessageEvent):
-    kb = VkKeyboardCallback(one_time=true)
+    kb = VkKeyboardCallback()
     kb.add_openlink_button("ДОМАШНЕЕ ЗАДАНИЕ",
                            "https://docs.google.com/spreadsheets/d/1pLdm10XL0JKNR5q6ibTfOfYLEjrkFfQMoaMnsBZlwZ4/edit#gid=0")  # кнопка с ссылкой
     kb.add_line()  # новая строка
