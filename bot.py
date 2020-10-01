@@ -211,7 +211,7 @@ def process(event: VkBotMessageEvent):
     elif text == "+v":
         v(event)
         return
-    elif text == "+fuck":
+    elif text == "+f":
         fuck(event)
         return
     try:
