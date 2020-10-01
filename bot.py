@@ -60,7 +60,8 @@ def fuck(event: VkBotMessageEvent):
     kb = VkKeyboardCallback(inline=True)
     kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,
                            payload={"goto": 'спок'})
-     kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,link=https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1)
+     kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,
+                           payload={"goto": 'спок'})
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
