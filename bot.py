@@ -56,6 +56,27 @@ class VkKeyboardCallback(VkKeyboard):
         })
 
 
+def fuck(event: VkBotMessageEvent):
+    kb = VkKeyboardCallback()
+    kb.add_openlink_button("ДОМАШНЕЕ ЗАДАНИЕ",
+                           "https://docs.google.com/spreadsheets/d/1pLdm10XL0JKNR5q6ibTfOfYLEjrkFfQMoaMnsBZlwZ4/edit#gid=0")  # кнопка с ссылкой
+    kb.add_line()  # новая строка
+    kb.add_openlink_button("РАСПИСАНИЕ",
+                           "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
+    kb.add_line()  # новая строка
+    kb.add_openlink_button("МУДЛ",
+                           "https://moodle.herzen.spb.ru/my/")
+    kb.add_line()  # новая строка
+    kb.add_callback_button("КОНТАКТЫ", color=VkKeyboardColor.PRIMARY,
+                           payload={"goto": 'КОНТАКТЫ'})  # идём в раздел 1
+    kb.add_line()
+    kb.add_callback_button("Случайный человек", payload={"send": "randomuser"})
+    kb.add_callback_button("ОРЕЛ И РЕШКА", payload={"send": "orel"})
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Привет!",
+                     random_id=get_random_id(),
+                     keyboard=kb.get_keyboard())
+
 def start_menu(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
     kb.add_openlink_button("ДОМАШНЕЕ ЗАДАНИЕ",
@@ -76,6 +97,7 @@ def start_menu(event: VkBotMessageEvent):
                      message="Привет!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
+
 
 def spok(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
@@ -177,7 +199,7 @@ def cmdNotFound(event: VkBotMessageEvent):
 
 def randomuser(event: VkBotMessageEvent):
     profiles = vk.messages.getConversationsById(peer_ids=str(
-        event.message.peer_id), extended=True)["profiles"]  # люди в этой беседе
+        event.message.peer_id), extended=True)["profiles"] 
     profile = random.choice(profiles)
     text = f"@id{profile['id']} ({profile['first_name']} {profile['last_name']})"
     vk.messages.send(peer_id=event.message.peer_id,
@@ -186,7 +208,7 @@ def randomuser(event: VkBotMessageEvent):
 
 
 def process(event: VkBotMessageEvent):
-    text: str = event.message.text.lower()  # текст в нижнем регистре
+    text: str = event.message.text.lower()
 
     # текстовые команды
     if text == "+kb":
@@ -200,6 +222,9 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+v":
         v(event)
+        return
+    elif text == "+fuck":
+        fuck(event)
         return
     try:
         payload: dict = json.loads(event.message.payload)
