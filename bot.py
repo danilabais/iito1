@@ -58,11 +58,13 @@ class VkKeyboardCallback(VkKeyboard):
 
 def fuck(event: VkBotMessageEvent):
     kb = VkKeyboardCallback(inline=True)
-    kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,link: "https://vk.com",type: "open_link")
+    kb.add_callback_button("Пожелать спокойной ночи беседе!",
+                           color=VkKeyboardColor.PRIMARY, link="https://vk.com", type="open_link")
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
+
 
 def start_menu(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
@@ -91,19 +93,22 @@ def spok(event: VkBotMessageEvent):
                      message="Желаю всем\nспокойной ночи!&#128515;)))",
                      random_id=get_random_id())
 
+
 def v(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Пожалуйста,@all, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
                      random_id=get_random_id())
+
 
 def k(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
                      random_id=get_random_id())
 
+
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
-   
+
     kb.add_openlink_button("В ГРУППУ",
                            "https://vk.com/club198561767")  # кнопка с ссылкой
     kb.add_line()
@@ -119,6 +124,7 @@ def urlkb(event: VkBotMessageEvent):
                      message="Привет!",
                      random_id=get_random_id(),
                      keyboard=kb.get_keyboard())
+
 
 def razdel1(event: VkBotMessageEvent):
     kb = VkKeyboard(inline=True)
@@ -191,7 +197,7 @@ def cmdNotFound(event: VkBotMessageEvent):
 
 def randomuser(event: VkBotMessageEvent):
     profiles = vk.messages.getConversationsById(peer_ids=str(
-        event.message.peer_id), extended=True)["profiles"] 
+        event.message.peer_id), extended=True)["profiles"]
     profile = random.choice(profiles)
     text = f"@id{profile['id']} ({profile['first_name']} {profile['last_name']})"
     vk.messages.send(peer_id=event.message.peer_id,
@@ -253,10 +259,10 @@ def process(event: VkBotMessageEvent):
         # отправка сообщения
         if send == "send1":
             send1(event)
-        elif send == "send6":                                
-            send6(event)                            
-        elif send == "send3":                                 
-            send3(event) 
+        elif send == "send6":
+            send6(event)
+        elif send == "send3":
+            send3(event)
         elif send == "orel":
             orel(event)
         elif send == "randomuser":
