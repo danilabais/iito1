@@ -96,6 +96,11 @@ def v(event: VkBotMessageEvent):
                      message="Пожалуйста,@all, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
                      random_id=get_random_id())
 
+def k(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
+                     random_id=get_random_id())
+
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
    
@@ -206,6 +211,9 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+s":
         spok(event)
+        return
+    elif text == "+k":
+        k(event)
         return
     elif text == "+v":
         v(event)
