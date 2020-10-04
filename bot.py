@@ -58,8 +58,7 @@ class VkKeyboardCallback(VkKeyboard):
 
 def fuck(event: VkBotMessageEvent):
     kb = VkKeyboardCallback(inline=True)
-    kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,
-                           payload={"goto": 'спок'})
+    kb.add_callback_button("Пожелать спокойной ночи беседе!", color=VkKeyboardColor.PRIMARY,link: "https://vk.com",type: "open_link")
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Привет!",
                      random_id=get_random_id(),
@@ -95,6 +94,11 @@ def spok(event: VkBotMessageEvent):
 def v(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
                      message="Пожалуйста,@all, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
+                     random_id=get_random_id())
+
+def k(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
                      random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
@@ -210,6 +214,9 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+v":
         v(event)
+        return
+    elif text =="+k":
+        k(event)
         return
     elif text == "+f":
         fuck(event)
