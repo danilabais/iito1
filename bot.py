@@ -96,13 +96,13 @@ def spok(event: VkBotMessageEvent):
 
 def v(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Пожалуйста &#128073;&#128072;,@all, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.com/topic-198561767_46105665",
+                     message="Пожалуйста,@everyone, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.cc/aAFgWr\n\n&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;",
                      random_id=get_random_id())
 
 
 def k(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\nhttps://vk.cc/aAFgWr\n&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;",
+                     message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.cc/aAFgWr\n\n&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;",
                      random_id=get_random_id())
 
 
