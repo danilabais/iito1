@@ -105,6 +105,15 @@ def k(event: VkBotMessageEvent):
                      message="Пожалуйста, перейдите в \"Важное за день\" по ссылке:\n\nhttps://vk.cc/aAFgWr\n\n&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;&#127384;&#127381;",
                      random_id=get_random_id())
 
+def i(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Пожалуйста, зайдите в \"Темы для докладов (История)\" по ссылке:\n\nhttps://vk.cc/aB1ewe",
+                     random_id=get_random_id())
+
+def ii(event: VkBotMessageEvent):
+    vk.messages.send(peer_id=event.message.peer_id,
+                     message="Пожалуйста, зайдите в \"Темы для докладов (История Информатики)\" по ссылке:\n\nhttps://vk.cc/aB1ent",
+                     random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
     kb = VkKeyboardCallback()
@@ -223,6 +232,12 @@ def process(event: VkBotMessageEvent):
         return
     elif text == "+v":
         v(event)
+        return
+    elif text == "+i":
+        i(event)
+        return
+    elif text == "+ii":
+        ii(event)
         return
     elif text == "+f":
         fuck(event)
