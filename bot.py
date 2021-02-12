@@ -72,7 +72,7 @@ def start_menu(event: VkBotMessageEvent):
                            "https://docs.google.com/spreadsheets/d/1pLdm10XL0JKNR5q6ibTfOfYLEjrkFfQMoaMnsBZlwZ4/edit#gid=0")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("РАСПИСАНИЕ",
-                           "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
+                           "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=2")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/")
@@ -125,7 +125,7 @@ def urlkb(event: VkBotMessageEvent):
                            "https://docs.google.com/spreadsheets/d/1pLdm10XL0JKNR5q6ibTfOfYLEjrkFfQMoaMnsBZlwZ4/edit#gid=0")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("РАСПИСАНИЕ",
-                           "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=1")  # кнопка с ссылкой
+                           "https://guide.herzen.spb.ru/static/schedule_view.php?id_group=12456&sem=2")  # кнопка с ссылкой
     kb.add_line()  # новая строка
     kb.add_openlink_button("МУДЛ",
                            "https://moodle.herzen.spb.ru/my/")
