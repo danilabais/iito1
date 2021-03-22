@@ -90,7 +90,7 @@ def start_menu(event: VkBotMessageEvent):
 
 def spok(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Введение в информатику\nИскусственный интеллект (KiReal) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/75923959296?pwd=elNzS082MkNxOW9hdGFNOGRNenMwQT09\nИдентификатор конференции: 759 2395 9296\nКод доступа: zjPXE6\n\nТакже, следует войти в чат по ссылке https://moodle.herzen.spb.ru/mod/chat/gui_ajax/index.php?id=53362",
+                     message="Введение в информатику\nИскусственный интеллект (KiReal) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/75923959296?pwd=elNzS082MkNxOW9hdGFNOGRNenMwQT09\nИдентификатор конференции: 759 2395 9296\nКод доступа: zjPXE6\n\nТакже, следует войти в чат по ссылке:\nhttps://moodle.herzen.spb.ru/mod/chat/gui_ajax/index.php?id=53362",
                      random_id=get_random_id())
 
 
@@ -107,7 +107,7 @@ def k(event: VkBotMessageEvent):
 
 def i(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Алгебра\nИскусственный интеллект (OkeyGoogle) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/4480633030?pwd=M29zSWRQUGRYWS9USFJheDdsdTdMQT09#success\n\nТакже следует зайти в общую папку с материалами:\nhttps://drive.google.com/drive/folders/1pBRk3BMrfiiFX7FA0b8Qiae36ov2U_te\nСсылка на Sage:\nhttps://cocalc.com/app",
+                     message="Алгебра\nИскусственный интеллект (OkeyGoogle) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/4480633030?pwd=M29zSWRQUGRYWS9USFJheDdsdTdMQT09#success\n\nТакже следует зайти в общую папку с материалами:\nhttps://drive.google.com/drive/folders/1pBRk3BMrfiiFX7FA0b8Qiae36ov2U_te\n\nСсылка на Sage:\nhttps://cocalc.com/app",
                      random_id=get_random_id())
 
 def ii(event: VkBotMessageEvent):
