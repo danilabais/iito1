@@ -90,7 +90,7 @@ def start_menu(event: VkBotMessageEvent):
 
 def spok(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="@alexwolfson(Alex Wolfson)",
+                     message="Искусственный интеллект (KiReal) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/75923959296?pwd=elNzS082MkNxOW9hdGFNOGRNenMwQT09\nИдентификатор конференции: 759 2395 9296\nКод доступа: zjPXE6\n\nТакже, следует войти в чат по ссылке https://moodle.herzen.spb.ru/mod/chat/gui_ajax/index.php?id=53362",
                      random_id=get_random_id())
 
 
@@ -224,7 +224,7 @@ def process(event: VkBotMessageEvent):
     elif text == "+urlkb":
         urlkb(event)
         return
-    elif text == "+s":
+    elif text == "+вви":
         spok(event)
         return
     elif text == "+k":
