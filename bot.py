@@ -107,7 +107,7 @@ def k(event: VkBotMessageEvent):
 
 def i(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Алгебра\nИскусственный интеллект (OkeyGoogle) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/4480633030?pwd=M29zSWRQUGRYWS9USFJheDdsdTdMQT09#success\n\nТакже следует зайти в общую папку с материалами:\nhttps://drive.google.com/drive/folders/1pBRk3BMrfiiFX7FA0b8Qiae36ov2U_te",
+                     message="Алгебра\nИскусственный интеллект (OkeyGoogle) приглашает вас на зум-пару по ссылке:\n\nhttps://us04web.zoom.us/j/4480633030?pwd=M29zSWRQUGRYWS9USFJheDdsdTdMQT09#success\n\nТакже следует зайти в общую папку с материалами:\nhttps://drive.google.com/drive/folders/1pBRk3BMrfiiFX7FA0b8Qiae36ov2U_te\nСсылка на Sage:\nhttps://cocalc.com/app",
                      random_id=get_random_id())
 
 def ii(event: VkBotMessageEvent):
