@@ -227,8 +227,8 @@ def process(event: VkBotMessageEvent):
     elif text == "+вви":
         spok(event)
         return
-    elif text == "+k":
-        k(event)
+    elif text == "+рандом":
+        randomuser(event)
         return
     elif text == "+v":
         v(event)
