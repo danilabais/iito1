@@ -112,7 +112,7 @@ def i(event: VkBotMessageEvent):
 
 def ii(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Пожалуйста, зайдите в \"Темы для докладов (История Информатики)\" по ссылке:\n\nhttps://vk.cc/aB1ent",
+                     message="С Днем рождения, Саша!\n Желаю добра, здоровья, побольше пятерок, хотя ты только их и так и получаешь))",
                      random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
@@ -236,7 +236,7 @@ def process(event: VkBotMessageEvent):
     elif text == "+а":
         i(event)
         return
-    elif text == "+ii":
+    elif text == "04":
         ii(event)
         return
     elif text == "+f":
