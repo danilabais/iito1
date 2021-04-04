@@ -112,7 +112,7 @@ def i(event: VkBotMessageEvent):
 
 def ii(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="С Днем рождения, Саша!\n Желаю добра, здоровья, побольше пятерок, хотя ты только их и так и получаешь))",
+                     message="С Днем рождения, Саша!\n Желаю добра, здоровья, побольше пятерок, хотя ты только их  и получаешь)) \nОставайся такой же лучшей старостой в мире!!!",
                      random_id=get_random_id())
 
 def urlkb(event: VkBotMessageEvent):
