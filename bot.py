@@ -90,7 +90,7 @@ def start_menu(event: VkBotMessageEvent):
 
 def vvi(event: VkBotMessageEvent):
     vk.messages.send(peer_id=event.message.peer_id,
-                     message="Введение в информатику (+вви) \n\n Ссылка для конференции в Zoom:\n https://vk.com/away.php?to=https%3A%2F%2Fus04web.zoom.us%2Fj%2F5656613684%3Fpwd%3DNndPNWFENmMyNWNwMzE5OGNXdjhJZz09%5Cn&cc_key= Идентификатор конференции: 565 661 3684\n Код доступа: 860852 \n\n Курс в Moodle: \n https://moodle.herzen.spb.ru/course/view.php?id=7496 \n\n Не забудьте войти в чат, который висит в самом верху и поздороваться!",
+                     message="Введение в информатику (+вви)\n\nСсылка для конференции в Zoom:\n https://vk.com/away.php?to=https%3A%2F%2Fus04web.zoom.us%2Fj%2F5656613684%3Fpwd%3DNndPNWFENmMyNWNwMzE5OGNXdjhJZz09%5Cn&cc_key= Идентификатор конференции: 565 661 3684\n Код доступа: 860852 \n\n Курс в Moodle: \n https://moodle.herzen.spb.ru/course/view.php?id=7496 \n\n Не забудьте войти в чат, который висит в самом верху и поздороваться!",
                      random_id=get_random_id())
 
 def a(event: VkBotMessageEvent):
