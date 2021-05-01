@@ -250,10 +250,10 @@ def cmdNotFound(event: VkBotMessageEvent):
 
 
 def randomuser(event: VkBotMessageEvent):
-    profiles = vk.messages.getConversationsById(peer_ids=str(
+    profiles = vk.messages.getConversationMembers(peer_ids=str(
         event.message.peer_id), extended=True)["profiles"]
     profile = random.choice(profiles)
-    text = f"@id{profile['id']} ({profile['first_name']} {profile['last_name']})"
+    text = f"@id{profile['id']} ({profile['first_name']} {profile['last_nameа']})"
     vk.messages.send(peer_id=event.message.peer_id,
                      message=text,
                      random_id=get_random_id())
