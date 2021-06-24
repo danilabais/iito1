@@ -7,7 +7,7 @@ import json
 
 import random
 
-with open("token.txt") as f:  # читаем токен из файла token.secret
+with open("token.txt") as f:  # читаем токен из файла token.secret 123
     vk_session = VkApi(token=f.read(), api_version="5.150")
 
 with open("group_id.txt") as f:  # id группы из файла
